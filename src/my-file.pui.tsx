@@ -1,9 +1,10 @@
 import typescriptLogo from './typescript.svg';
 import viteLogo from '/vite.svg';
+import { Counter } from './counter.pui';
 
 export function example() {
 	const title = "Vite + TypeScript + Peasy";
-	let counter = 0;
+	let counter = Counter();
 	
 	return {
 		typescriptLogo,
@@ -19,9 +20,7 @@ export function example() {
 			</a>
 			<h1>{ title }</h1>
 			{/* @ts-expect-error */}
-			<div class="card">
-				{/* @ts-ignore */}
-				<button pui="click @=> on_click" type="button">{ counter }</button>
+			<div class="card" pui="counter ===">
 			</div>
 			{/* @ts-expect-error */}
 			<p class="read-the-docs">
@@ -29,11 +28,6 @@ export function example() {
 			</p>
 		</div> as unknown as string,
 		title,
-		get counter() {
-			return "Count is " + counter;
-		},
-		on_click: () => {
-			counter += 1;
-		}
+		counter,
 	};
 }
