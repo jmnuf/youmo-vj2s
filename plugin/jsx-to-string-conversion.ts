@@ -20,7 +20,7 @@ export function handle_individual_variable(src: string) {
 		}
 		template_declaration += char;
 	}
-	console.log(matched_template);
+	// console.log(matched_template);
 	while (cursor < matched_template.length) {
 		const char = matched_template.charAt(cursor);
 		if (char == "{" && matched_template.charAt(cursor - 1) != "$") {
@@ -57,7 +57,7 @@ export function handle_object_property(src: string) {
 		}
 		template_declaration += char;
 	}
-	console.log(matched_template);
+	// console.log(matched_template);
 	while (cursor < matched_template.length) {
 		const char = matched_template.charAt(cursor);
 		if (char == "{" && matched_template.charAt(cursor - 1) != "$") {

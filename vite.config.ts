@@ -1,7 +1,8 @@
+import { defineConfig } from "vite";
 import Inspect from 'vite-plugin-inspect';
 import my_plugin from "./plugin/my-plugin";
 
-export default {
+export default defineConfig({
 	plugins: [
 		my_plugin(),
 		Inspect({
@@ -9,4 +10,4 @@ export default {
 			outputDir: '.vite-inspect'
 		}),
 	],
-};
+});
