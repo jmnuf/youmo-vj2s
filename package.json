@@ -1,0 +1,21 @@
+{
+  "name": "test-vite-plugin",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.6",
+    "typescript": "^5.0.2",
+    "vite": "^4.3.2",
+    "vite-plugin-inspect": "^0.7.26"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
