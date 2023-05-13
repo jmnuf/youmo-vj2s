@@ -1,6 +1,9 @@
 lockfileVersion: '6.0'
 
 dependencies:
+  '@peasy-lib/peasy-ui':
+    specifier: ^0.9.45
+    version: 0.9.45
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -225,6 +228,11 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@peasy-lib/peasy-ui@0.9.45:
+    resolution: {integrity: sha512-jQPJWpuzWnGjue7vUNcfYnnF3Xq3j3DGKBcA6p3Kyo7UD/+oSM3iKcpxiHKZ1pR+Oxa58LcxOf343hrtWqG1wQ==}
+    engines: {node: '>=14.17.0'}
+    dev: false
 
   /@polka/url@1.0.0-next.21:
     resolution: {integrity: sha512-a5Sab1C4/icpTZVzZc5Ghpz88yQtGOyNqYXcZgOssB2uuAr+wF/MvN6bgtW32q7HHrvBki+BsZ0OuNv6EV3K9g==}
