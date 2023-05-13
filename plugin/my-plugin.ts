@@ -48,7 +48,7 @@ function handle_individual_variable(src: string) {
 	console.log(matched_template);
 	while (cursor < matched_template.length) {
 		const char = matched_template.charAt(cursor);
-		if (char == "{") {
+		if (char == "{" && matched_template.charAt(cursor - 1) != "$") {
 			template_declaration += "\\$";
 		}
 		if (char == ";") {
@@ -86,49 +86,23 @@ function handle_object_property(src: string) {
 	console.log(matched_template);
 	while (cursor < matched_template.length) {
 		const char = matched_template.charAt(cursor);
-		cursor += 1;
-		if (char == "{") {
+		if (char == "{" && matched_template.charAt(cursor - 1) != "$") {
 			template_declaration += "\\$";
 		}
-		if (char == "," && cursor == matched_template.length) {
+		if (char == "," && (cursor + 1) >= matched_template.length) {
 			template_declaration += "`";
 		}
+		cursor += 1;
 		template_declaration += char;
 	}
 	let content = src.replace(matched_template, template_declaration);
 	content = remove_ts_comments(content);
+	content = switch_classname_to_class(content);
 	return content;
 }
 
-// type SomeTokenType = "<NONE>" | "declaring" | "<TYPING>";
 
-// type SomeToken = {
-// 	type: SomeTokenType;
-// 	phrase: string;
-// 	children: SomeToken[];
-// };
-
-// function get_next_token(src: string, index: number, parent: SomeToken | null = null): [number, SomeToken] {
-// 	let phrase = "";
-// 	let type: SomeTokenType = "<NONE>";
-// 	let children: SomeToken[] = [];
-// 	while (index < src.length) {
-// 		const char = src.charAt(index);
-// 		index += 1;
-// 		if (char == " ") {
-// 			if (phrase.length == 0) {
-// 				type = "<NONE>";
-// 				phrase = char;
-// 				break;
-// 			}
-// 		}
-// 	}
-// 	const token: SomeToken = {
-// 		type,
-// 		phrase,
-// 		children,
-// 	};
-// 	return [index, token];
-// }
-
-
+function switch_classname_to_class(template: string) {
+	const regex = / className\=\"/g;
+	return template.replace(regex, " class=\"");
+};
