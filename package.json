@@ -10,13 +10,12 @@
   },
   "devDependencies": {
     "@types/react": "^18.2.6",
+    "react": "^18.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.3.2",
     "vite-plugin-inspect": "^0.7.26"
   },
   "dependencies": {
-    "@peasy-lib/peasy-ui": "^0.9.45",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "@peasy-lib/peasy-ui": "^0.9.45"
   }
 }
